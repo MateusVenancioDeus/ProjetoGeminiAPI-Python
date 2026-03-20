@@ -1,125 +1,150 @@
-# FastAPI Gemini API
+# FastAPI Gemini API: Solução de IA Generativa com Python
 
-🚀 API FastAPI + Google Gemini
+![img_1.png|width=225,height=80,id=Oku3rtkeJ2NEST8uK2CFQc](img_1.png)
 
-![img_1.png](img_1.png)
+Este projeto apresenta uma **API robusta e escalável** desenvolvida com **FastAPI** em Python, integrando-se ao modelo de **Inteligência Artificial Generativa (GenAI) Google Gemini**. A solução foi arquitetada para facilitar a interação com modelos de linguagem avançados, oferecendo um *backend* eficiente e um *frontend* simplificado para demonstração.
 
-**⚙️ Tecnologias utilizadas** 
-- FastAPI
- → Framework web moderno e rápido para criação de APIs em Python.
+## ✨ Funcionalidades Principais
 
-- Pydantic
- → Validação e tipagem dos dados recebidos pela API.
+- **Interação com Google Gemini:** Envio de *prompts* e recebimento de respostas do modelo de linguagem Gemini.
 
-- Uvicorn
- → Servidor ASGI leve e rápido para rodar a aplicação FastAPI.
+- **API RESTful:** Exposição de *endpoints* bem definidos para comunicação cliente-servidor.
 
-- Poetry
- → Gerenciador de dependências e ambiente virtual.
+- **Interface de Usuário (Frontend):** Um *frontend* básico para demonstração interativa da funcionalidade da API.
 
-- Google Generative AI SDK
- → Biblioteca oficial para integração com o modelo Gemini.
+- **Documentação Interativa:** Geração automática de documentação da API via Swagger UI e ReDoc para fácil exploração e teste.
 
-- python-dotenv
- → Carrega variáveis de ambiente do arquivo .env.
+- **Validação de Dados:** Garantia da integridade dos dados de entrada e saída através de esquemas robustos.
 
-📦 Instalação 
-1. Clone o repositório
-git clone https://github.com/seu-usuario/Python-Projeto.git
-cd Python-Projeto 
+## ⚙️ Tecnologias e Ferramentas
 
-2. Configuração de ambiente:
+Este projeto utiliza um *stack* tecnológico moderno e eficiente:
 
-Crie um arquivo .env na raiz com a sua chave da API do Google Gemini:
+- **FastAPI:** *Framework* web de alta performance para construção de APIs assíncronas em Python.
 
-GOOGLE_API_KEY="sua-chave-aqui"
+- **Pydantic:** Biblioteca para validação de dados e gerenciamento de configurações, garantindo a tipagem e a estrutura dos dados da API.
 
-3. Instale as dependências
+- **Uvicorn:** Servidor ASGI (Asynchronous Server Gateway Interface) otimizado para executar aplicações FastAPI de forma rápida e eficiente.
+
+- **Poetry:** Ferramenta para gerenciamento de dependências e empacotamento de projetos Python, assegurando ambientes virtuais isolados e reprodutíveis.
+
+- **Google Generative AI SDK:** Biblioteca oficial para integração programática com os modelos de IA Generativa do Google, incluindo o Gemini.
+
+- **python-dotenv:** Utilizado para carregar variáveis de ambiente de um arquivo `.env`, facilitando a gestão de credenciais e configurações sensíveis.
+
+## 📦 Instalação e Configuração
+
+Para configurar e executar o projeto localmente, siga os passos abaixo:
+
+1. **Clonar o Repositório:**
+
+   ```bash
+   git clone https://github.com/seu-usuario/Python-Projeto.git
+   cd Python-Projeto
+   ```
+
+1. **Configuração da Chave de API:**
+
+   Crie um arquivo `.env` na raiz do projeto e adicione sua chave de API do Google Gemini:
+
+   ```
+   GOOGLE_API_KEY="sua-chave-aqui"
+   ```
+
+   *Obtenha sua chave de API no *[*Google AI Studio*](https://aistudio.google.com/app/apikey)*.*
+
+1. **Instalar Dependências:**
+
+   Utilize o Poetry para instalar as dependências do projeto:
+
+   ```bash
+   poetry install
+   ```
+
+   Alternativamente, se preferir `pip`:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## ▶️ Executando a Aplicação
+
+Para iniciar o servidor da API e o *frontend* de demonstração:
 
 Com Poetry:
 
-poetry install
-
-Ou com pip usando o requirements.txt:
-
-pip install -r requirements.txt
-
-▶️ Executando a aplicação
-
-Server.py onde vamos dar o Run.
-
-Com Poetry:
+```bash
 poetry run uvicorn server:app --reload
+```
 
-Teste para retornar com pytest: 
-no terminal escreva: 
+Após a inicialização, acesse a aplicação no seu navegador:
 
-- pytest tests/test_chat.py -v -s -W ignore::pytest.PytestConfigWarning 
-Acesse no navegador:
-👉 http://127.0.0.1:8000/ (frontend do chat)
-📘 Swagger UI
+- **Frontend do Chat:** 👉 `http://127.0.0.1:8000/`
 
-URL: 👉 http://127.0.0.1:8000/docs
+### Testes Automatizados
 
-- Interface mais popular, permite testar as rotas de forma rápida.
+Para executar os testes unitários e de integração do projeto:
 
-- Tem suporte a autenticação, exemplos de requisição e resposta.
+```bash
+pytest tests/test_chat.py -v -s -W ignore::pytest.PytestConfigWarning
+```
 
-- Usa a biblioteca Swagger UI por baixo dos panos.
+## 📘 Documentação da API
 
-📕 ReDoc
+O FastAPI gera automaticamente interfaces interativas para a documentação da API:
 
-URL: 👉 http://127.0.0.1:8000/redoc
+- **Swagger UI:** 👉 `http://127.0.0.1:8000/docs`
+  - Ideal para desenvolvedores testarem os *endpoints* diretamente no navegador, com suporte a autenticação e exemplos de requisição/resposta.
 
-- Outra forma de visualizar a documentação, mais limpa e organizada.
+- **ReDoc:** 👉 `http://127.0.0.1:8000/redoc`
+  - Oferece uma visualização mais limpa e organizada da especificação da API, excelente para documentação oficial e consulta.
 
-- Ideal para consultar a especificação da API (melhor leitura, pior para testar).
+## 📡 Endpoints da API
 
-- Usa a biblioteca ReDoc.
+### `POST /chat/ask`
 
-**Diferença prática**
+Envia um *prompt* textual para o modelo Google Gemini e retorna a resposta gerada.
 
-/docs → Melhor para desenvolvedores testarem os endpoints.
+- **Requisição (Body JSON ):**
 
-/redoc → Melhor para documentação oficial da API, quando você quer entregar algo bonito e navegável para outras pessoas.
-📡 Endpoints principais
-POST /chat/ask
+   ```json
+   {
+     "prompt": "Qual é a capital do Brasil?"
+   }
+   ```
 
-Envia um prompt para o Google Gemini e retorna a resposta.
+- **Resposta (Body JSON):**
 
-**Exemplo de body JSON:**
-- {
-  "prompt": "Qual é a capital do Brasil?"
-} 
- 
+   ```json
+   {
+     "output": "A capital do Brasil é Brasília."
+   }
+   ```
 
-- Resposta: 
+## 🖥️ Arquitetura do Frontend
 
-- {
-  "output": "A capital do Brasil é Brasília."
-}
+O *frontend* de demonstração, localizado em `frontend/index.html`, é uma interface simples que:
 
-**🖥️ Frontend** \
-_Localizado em frontend/index.html._ \
-o que foi feito:
+- Realiza requisições assíncronas (`fetch`) para o *endpoint* `/chat/ask`.
 
-- Faz requisições via fetch para /chat/ask.
+- Permite a entrada de *prompts* via `textarea` e exibe as respostas do Gemini em uma `div` dedicada.
 
-- Interface simples com textarea para prompt e div para exibir a resposta.
-- 
+## 📌 Estrutura do Projeto e Boas Práticas
 
-**📌 Observações importantes**
+O projeto segue uma estrutura modular e em camadas para promover a organização, manutenibilidade e escalabilidade:
 
-Certifique-se de ter o arquivo .env configurado com a sua chave Google Gemini API Key.
+- **`Models/`****:** Define os esquemas de entrada e saída de dados utilizando Pydantic, garantindo a validação e serialização/desserialização.
 
-O projeto foi estruturado em camadas:
+- **`Services/`****:** Contém a lógica de negócio principal, incluindo a integração com o Google Gemini e o processamento das interações.
 
-- Models → Entrada/saída de dados (Pydantic).
+- **`Routes/`****:** Gerencia os *endpoints* da API, roteando as requisições para os serviços apropriados.
 
-- Services → Conexão com Gemini e lógica de negócio.
+- **`Frontend/`****:** Abriga os arquivos estáticos da interface de usuário para demonstração.
 
-- Routes → Endpoints da API.
+As rotas da API são acessíveis via `/chat/ask`, enquanto a interface de usuário está disponível na raiz (`/`).
 
-- Frontend → Interface de usuário.
+## 👤 Autor
 
-As rotas ficam acessíveis em /chat/ask (API) e / (UI).
+**Mateus Venâncio**
+
+
