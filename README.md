@@ -1,6 +1,5 @@
 # FastAPI Gemini API: Solução de IA Generativa com Python
 
-![img_1.png|width=225,height=80,id=Oku3rtkeJ2NEST8uK2CFQc](img_1.png)
 
 Este projeto apresenta uma **API robusta e escalável** desenvolvida com **FastAPI** em Python, integrando-se ao modelo de **Inteligência Artificial Generativa (GenAI) Google Gemini**. A solução foi arquitetada para facilitar a interação com modelos de linguagem avançados, oferecendo um *backend* eficiente e um *frontend* simplificado para demonstração.
 
